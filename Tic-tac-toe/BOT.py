@@ -5,8 +5,8 @@ inf=1000000
 
 'MAIN BRAIN OF TIC TAC TOE'
 def brain(l,p,d,al,bt):
-    if cheakwinner(l)!=0:
-        return cheakwinner(l) 
+    if checkwinner(l)!=0:
+        return checkwinner(l) 
     if moveavl(l):
         return 0
     if p:
@@ -75,7 +75,7 @@ def boardevaluation(l,v):
     return False
 
 'CHECK WINNER'
-def cheakwinner(l):
+def checkwinner(l):
     if boardevaluation(l,0):
         return -10
     elif boardevaluation(l,1):
