@@ -46,12 +46,17 @@ def startgame():
 def update_clock():
     global count,resume,player1,player2
     if count==0:
+        sound1.stop()
         if 8 not in convert():
             msg.set("MATCH TIE!")
         elif c:
             msg.set(player2+"  WON!")
+            sound5.play(0)
         else:
             msg.set(player1+"  WON!")
+            sound4.play(0)
+        sound1.play(-1)
+        
         label["text"]="Time left : 0"
         switch(restart)
         return
@@ -308,12 +313,6 @@ def checkwinner():
     global count
     if boardevaluation(convert(),1) or boardevaluation(convert(),0) or (8 not in convert()):
         count=0
-        sound1.stop()
-        if p1id.get() in msg.get():
-             sound4.play(0)
-        else:
-             sound5.play(0)
-        sound1.play(-1)
         return True
         
 def convert():
